@@ -13,5 +13,11 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:show, :destroy]
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :costumes, only: [ :index ]
+    end
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 end
