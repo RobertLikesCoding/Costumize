@@ -33,6 +33,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'pundit'
+gem 'simple_token_authentication'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
