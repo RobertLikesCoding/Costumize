@@ -33,14 +33,14 @@ class CostumesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # renders the normal index.html.erb
-      format.js { render partial: 'costumes/results', locals: { costumes: @costumes } } # renders the partial for AJAX requests
+      format.html
+      format.js { render partial: 'costumes/results', locals: { costumes: @costumes } }
     end
   end
 
   def show
     @costume = Costume.find(params[:id])
-    @booking = Booking.new  # <------ this is to send a booking variable to the booking.new form inside the costume.show page!
+    @booking = Booking.new 
     @start_date = params[:start_date]
     @end_date = params[:end_date]
   end
