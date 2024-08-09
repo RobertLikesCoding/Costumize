@@ -19,3 +19,7 @@ end
 
 # Folder path for screenshots
 Capybara.save_path = Rails.root.join("tmp/capybara")
+
+class ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
+end
