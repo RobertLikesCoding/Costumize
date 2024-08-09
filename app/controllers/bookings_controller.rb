@@ -5,21 +5,14 @@ class BookingsController < ApplicationController
   before_action :set_costume, only: [:new, :create]
 
   def index
-    # trying to grab the bookings first, so I can access the related costumes
     @bookings = current_user.bookings
   end
-
-  # def new
-  #   @booking = Booking.new    <------- not necessary because the form is being displayed in the costume.show page! See costumes_controller#show....
-  # end
-
   def create
 
     @booking = Booking.new(booking_params)
     @booking.costume = @costume
     @booking.user = current_user
 
-    # This checks if the user has introduced dates in the booking calendar -----------------------
     unless booking_params[:start_date].present? && booking_params[:end_date].present?
       flash.now[:alert] = "Please confirm your rental dates."
       render 'costumes/show', status: :unprocessable_entity

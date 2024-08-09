@@ -4,9 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  # associations
   has_many :bookings
   has_many :costumes, :through => :bookings
-  
+
   acts_as_token_authenticatable
 end
