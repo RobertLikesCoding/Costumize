@@ -6,6 +6,7 @@ class Costume < ApplicationRecord
   belongs_to :user
 
   validates :name, :category, :size, :description, :price_per_day, presence: true
+  validates :name, length: { maximum: 30 }
   validates :description, uniqueness: true
   validates :name, :description, length: { minimum: 5 }
   validates :price_per_day, numericality: { greater_than: 0 }
